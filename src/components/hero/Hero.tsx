@@ -154,8 +154,163 @@
 //   );
 // }
 
+// "use client";
+
+// import { motion } from "framer-motion";
+// import { ArrowRight } from "lucide-react";
+
+// import AmbientLights from "../animations/AmbientLights";
+// import RevealText from "../animations/RevealText";
+// import ProfileCard from "../hero/profileCard";
+// import Magnetic from "../animations/Magnetic";
+
+// export default function Hero() {
+//   return (
+//     <section
+//       className="
+//         relative
+//         flex
+//         min-h-[100svh]
+//         flex-col
+//         overflow-visible
+//         pt-32
+//         pb-16
+//         section-padding
+//         lg:flex-row
+//         lg:items-center
+//         lg:justify-between
+//         lg:gap-16
+//       "
+//     >
+//       <AmbientLights />
+
+//       {/* LEFT SIDE */}
+//       <div className="relative z-10 w-full lg:flex-1">
+
+//         {/* Subtitle */}
+//         <motion.p
+//           initial={{ opacity: 0, y: 30 }}
+//           animate={{ opacity: 1, y: 0 }}
+//           transition={{ duration: 0.6 }}
+//           className="mb-6 text-xs uppercase tracking-[0.35em] text-purple-400 sm:text-sm"
+//         >
+//           Full Stack Engineer • Product Builder
+//         </motion.p>
+
+//         {/* Heading */}
+//         <RevealText
+//           text="Engineering scalable systems for modern digital experiences."
+//           className="
+//             max-w-4xl
+//             text-4xl
+//             font-black
+//             leading-[0.9]
+//             tracking-[-0.05em]
+//             sm:text-5xl
+//             md:text-6xl
+//             lg:text-[5.5rem]
+//           "
+//         />
+
+//         {/* Description */}
+//         <motion.p
+//           initial={{ opacity: 0, y: 30 }}
+//           animate={{ opacity: 1, y: 0 }}
+//           transition={{ duration: 1 }}
+//           className="
+//             mt-8
+//             max-w-xl
+//             text-base
+//             leading-relaxed
+//             text-slate-400
+//             sm:text-lg
+//           "
+//         >
+//           Full Stack Developer focused on scalable backend systems,
+//           premium UI/UX, AI-powered applications, startup engineering,
+//           and immersive digital experiences.
+//         </motion.p>
+
+//         {/* Buttons */}
+//         <motion.div
+//           initial={{ opacity: 0, y: 30 }}
+//           animate={{ opacity: 1, y: 0 }}
+//           transition={{ duration: 1.2 }}
+//           className="mt-10 flex flex-wrap items-center gap-4"
+//         >
+//           <Magnetic>
+//             <button
+//               className="
+//                 group
+//                 flex
+//                 items-center
+//                 gap-2
+//                 rounded-2xl
+//                 bg-white
+//                 px-6
+//                 py-3
+//                 font-medium
+//                 text-black
+//                 transition-all
+//                 duration-300
+//                 hover:scale-105
+//                 hover:shadow-[0_0_50px_rgba(255,255,255,0.15)]
+//               "
+//             >
+//               View Projects
+//               <ArrowRight
+//                 size={18}
+//                 className="transition-transform duration-300 group-hover:translate-x-1"
+//               />
+//             </button>
+//           </Magnetic>
+
+//           <Magnetic>
+//             <button
+//               className="
+//                 glass
+//                 rounded-2xl
+//                 px-6
+//                 py-3
+//                 font-medium
+//                 transition-all
+//                 duration-300
+//                 hover:scale-105
+//                 hover:bg-white/10
+//               "
+//             >
+//               Contact Me
+//             </button>
+//           </Magnetic>
+//         </motion.div>
+//       </div>
+
+//       {/* RIGHT SIDE */}
+//       <div
+//         className="
+//           relative
+//           z-10
+//           mt-12
+//           flex
+//           w-full
+//           items-center
+//           justify-center
+//           lg:mt-0
+//           lg:flex-1
+//           lg:justify-end
+//         "
+//       >
+//         <ProfileCard />
+//       </div>
+
+//     </section>
+//   );
+// }
+
+
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
@@ -170,7 +325,7 @@ export default function Hero() {
       className="
         relative
         flex
-        min-h-[100svh]
+        min-h-screen
         flex-col
         overflow-visible
         pt-32
@@ -231,6 +386,11 @@ export default function Hero() {
           and immersive digital experiences.
         </motion.p>
 
+        {/* MOBILE PROFILE */}
+        <div className="relative mt-10 flex justify-center lg:hidden">
+          <ProfileCard />
+        </div>
+
         {/* Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -238,8 +398,11 @@ export default function Hero() {
           transition={{ duration: 1.2 }}
           className="mt-10 flex flex-wrap items-center gap-4"
         >
+
+          {/* VIEW PROJECTS */}
           <Magnetic>
-            <button
+            <Link
+              href="#projects"
               className="
                 group
                 flex
@@ -258,15 +421,18 @@ export default function Hero() {
               "
             >
               View Projects
+
               <ArrowRight
                 size={18}
                 className="transition-transform duration-300 group-hover:translate-x-1"
               />
-            </button>
+            </Link>
           </Magnetic>
 
+          {/* CONTACT BUTTON */}
           <Magnetic>
-            <button
+            <Link
+              href="#contact"
               className="
                 glass
                 rounded-2xl
@@ -280,22 +446,22 @@ export default function Hero() {
               "
             >
               Contact Me
-            </button>
+            </Link>
           </Magnetic>
+
         </motion.div>
       </div>
 
-      {/* RIGHT SIDE */}
+      {/* DESKTOP PROFILE */}
       <div
         className="
           relative
           z-10
-          mt-12
-          flex
+          hidden
           w-full
           items-center
           justify-center
-          lg:mt-0
+          lg:flex
           lg:flex-1
           lg:justify-end
         "
