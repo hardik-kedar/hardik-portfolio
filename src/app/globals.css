@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+:root {
+  --background: #050816;
+  --foreground: #ffffff;
+
+  --card: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.08);
+
+  --primary: #8b5cf6;
+  --secondary: #06b6d4;
+
+  --muted: #94a3b8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+}
+
+* {
+  border-color: var(--border);
+}
+
+::selection {
+  background: var(--primary);
+  color: white;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.gradient-text {
+  background: linear-gradient(
+    to right,
+    #8b5cf6,
+    #06b6d4
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-padding {
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* LENIS */
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
