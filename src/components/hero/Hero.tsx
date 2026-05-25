@@ -247,20 +247,21 @@ export default function Hero() {
       </div>
 
       {/* RIGHT SIDE */}
-      <div
-        className="
-          relative
-          mt-16
-          flex
-          w-full
-          flex-1
-          justify-center
-          lg:mt-0
-          lg:justify-end
-        "
-      >
-        <ProfileCard />
-      </div>
+  {/* RIGHT SIDE */}
+<div
+  className="
+    relative
+    mt-16
+    flex
+    w-full
+    flex-1
+    justify-center
+    lg:mt-0
+    lg:justify-end
+  "
+>
+  <ProfileCard />
+</div>
     </section>
   );
 }
